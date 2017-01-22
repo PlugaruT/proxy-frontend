@@ -6,9 +6,13 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController() {
+  function MainController(Restangular) {
 
     activate();
+
+    Restangular.service('shoppers').getList().then(function (respone) {
+      console.log('asdas')
+    });
 
     function activate() {
     }
