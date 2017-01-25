@@ -6,21 +6,32 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(Restangular) {
+  function MainController($mdDialog, Restangular) {
     var vm = this;
     activate();
 
     vm.user = {};
 
-
     function activate() {
       getUserList()
     }
 
-
     vm.deleteUser = function (user) {
       user.doDELETE();
       _.remove(vm.userList, user)
+    };
+
+    vm.showEditUserPrompt = function (ev, user) {
+      var confirm = $mdDialog.prompt()
+        .title('Change First Name')
+        .targetEvent(ev)
+        .ok('Save')
+        .cancel('Cancel');
+
+      $mdDialog.show(confirm).then(function (result) {
+        user.first_name = result;
+        user.put();
+      });
     };
 
     vm.createUser = function () {
