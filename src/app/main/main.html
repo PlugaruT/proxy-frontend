@@ -2,17 +2,43 @@
 
   <md-content>
     <header>
-      <acme-navbar creation-date="main.creationDate"></acme-navbar>
+      <acme-navbar creation-date="vm.creationDate"></acme-navbar>
     </header>
-
-    <section class="jumbotron">
-      <h1>'Allo, 'Allo!</h1>
-      <h1>Proxy frontend here </h1>
-
-    </section>
+    <div layout="row" layout-align="space-between center">
+      <md-input-container>
+        <label>Email</label>
+        <input ng-model="vm.user.email" placeholder="Email">
+      </md-input-container>
+      <md-input-container>
+        <label>First Name</label>
+        <input ng-model="vm.user.first_name" placeholder="First Name">
+      </md-input-container>
+      <md-input-container>
+        <label>Last Name</label>
+        <input ng-model="vm.user.last_name" placeholder="Last Name">
+      </md-input-container>
+      <md-input-container>
+        <label>Username</label>
+        <input ng-model="vm.user.username" placeholder="Username">
+      </md-input-container>
+      <md-button ng-click="vm.createUser()" class="md-primary">
+        Save
+      </md-button>
+    </div>
 
     <div class="techs" layout-align="center">
-      stuff here :D
+      <md-list ng-cloak flex>
+        <md-list-item ng-repeat="user in vm.userList">
+          <md-icon md-svg-icon="{{setting.icon}}"></md-icon>
+          <p>{{user.email}}</p>
+          <p>{{user.first_name}} </p>
+          <p>{{user.last_name}} </p>
+          <p>{{user.id}} </p>
+          <md-button class="md-secondary md-icon-button md-warn" ng-click="vm.deleteUser(user)">
+            <ng-md-icon icon="delete"></ng-md-icon>
+          </md-button>
+        </md-list-item>
+      </md-list>
     </div>
   </md-content>
 

@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('proxyFrontend', ['restangular', 'ui.router', 'ngMaterial', 'toastr']);
+    .module('proxyFrontend', ['restangular', 'ui.router', 'ngMaterial', 'ngMdIcons', 'toastr']);
 
 })();
