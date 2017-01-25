@@ -4,24 +4,26 @@
     <header>
       <acme-navbar creation-date="vm.creationDate"></acme-navbar>
     </header>
-    <div layout="row" layout-align="space-between center">
-      <md-input-container>
-        <label>Email</label>
-        <input ng-model="vm.user.email" placeholder="Email">
-      </md-input-container>
-      <md-input-container>
-        <label>First Name</label>
-        <input ng-model="vm.user.first_name" placeholder="First Name">
-      </md-input-container>
-      <md-input-container>
-        <label>Last Name</label>
-        <input ng-model="vm.user.last_name" placeholder="Last Name">
-      </md-input-container>
-      <md-input-container>
-        <label>Username</label>
-        <input ng-model="vm.user.username" placeholder="Username">
-      </md-input-container>
-      <md-button ng-click="vm.createUser()" class="md-primary">
+    <div layout="row" layout-align="space-between center" layout-padding>
+      <form ng-submit="vm.createUser()">
+        <md-input-container>
+          <label>Email</label>
+          <input ng-model="vm.user.email" placeholder="Email">
+        </md-input-container>
+        <md-input-container>
+          <label>First Name</label>
+          <input ng-model="vm.user.first_name" placeholder="First Name">
+        </md-input-container>
+        <md-input-container>
+          <label>Last Name</label>
+          <input ng-model="vm.user.last_name" placeholder="Last Name">
+        </md-input-container>
+        <md-input-container>
+          <label>Username</label>
+          <input ng-model="vm.user.username" placeholder="Username">
+        </md-input-container>
+      </form>
+      <md-button type="submit" ng-click="vm.createUser()" class="md-primary">
         Save
       </md-button>
     </div>

@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, RestangularProvider) {
+  function config($logProvider, $locationProvider, RestangularProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -16,6 +16,7 @@
     RestangularProvider.setRequestSuffix('/');
     RestangularProvider.setDefaultHttpFields({spinner: true});
 
+    $locationProvider.html5Mode(true);
   }
 
 })();
