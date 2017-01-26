@@ -24,6 +24,7 @@
     vm.showEditUserPrompt = function (ev, user) {
       var confirm = $mdDialog.prompt()
         .title('Change First Name')
+        .initialValue(user.first_name)
         .targetEvent(ev)
         .ok('Save')
         .cancel('Cancel');
