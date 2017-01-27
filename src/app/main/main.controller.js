@@ -64,6 +64,7 @@
             .position('bottom left')
             .hideDelay(3000)
         );
+        vm.user = {};
         vm.userList.splice(0, 0, response)
       });
     };
